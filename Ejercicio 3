@@ -1,0 +1,34 @@
+import java.util.*;
+
+public class p3 {
+
+    public static int NDistintos (int N, ArrayList<Integer> numeros){
+        Hashtable<Integer, Integer> tabla = new Hashtable<>();
+        
+        for (int numero : numeros) {
+            if (tabla.get(numero) == null) {
+                tabla.put(numero, 1);
+            }
+            
+            else {
+                tabla.put(numero, tabla.get(numero) + 1);
+            }
+        }
+
+        return tabla.size();
+    }
+    public static void main (String args[]){
+        int N;
+        ArrayList<Integer> numeros = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
+        N = sc.nextInt();
+
+        for(int i = 0; i < N; i++){
+            numeros.add(sc.nextInt());
+        }
+        sc.close();
+
+        System.out.println(NDistintos(N, numeros));
+
+    }
+}
